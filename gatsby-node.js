@@ -1,14 +1,25 @@
+var FeedRetrieval = require("./feed-retrieval");
+
+var FeedNode = require("./feed-node");
+
+var feedRetrieval = new FeedRetrieval();
+
 exports.sourceNodes = async ({
   actions
-}) => {
+}, pluginOptions) => {
   const {
     createNode
-  } = actions; // Create nodes here, generally by downloading data
-  // from a remote API.
-
-  const data = await fetch(REMOTE_API); // Process data into nodes.
-
-  data.forEach(datum => createNode(processDatum(datum))); // We're done, return.
-
+  } = actions;
+  const category = pluginOptions.category;
+  const feeds = pluginOptions.feeds;
+  feeds.forEach(feed => {
+    feedRetrieval.request(feed).then(data => {
+      data.forEach(d => {
+        d.category = category;
+        const feedNode = FeedNode(d);
+        createNode(feedNode);
+      });
+    });
+  });
   return;
 };

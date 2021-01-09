@@ -25,5 +25,7 @@
     "gatsby-node-helpers": "^0.3.0",
     "request": "^2.88.0"
   },
-  "publishConfig": { "registry": "https://npm.pkg.github.com/" }
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/"
+  }
 }
