@@ -1,4 +1,4 @@
-var FeedRetrieval = require("./feed_retrieval");
+var FeedRetrieval = require("./feed-retrieval");
 var FeedNode = require("./feed-node");
 
 var feedRetrieval = new FeedRetrieval();
