@@ -2,9 +2,9 @@
   "name": "gatsby-source-rss-cat",
   "version": "1.0.1",
   "description": "this is a source plugin for gatsby to reed rss and provide them in categories",
-  "main": "gatsby-node.js",
+  "main": "dir/gatsby-node.js",
   "scripts": {
-    "build": "babel src --out-dir .",
+    "build": "babel src --out-dir dir",
     "prepublish": "npm run build"
   },
   "keywords": [
